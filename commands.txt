@@ -1,7 +1,15 @@
+//Docker
 docker image build -f "C:\Projetos\DotNet\run-devops\Shopping\Shopping.Client\Dockerfile" --force-rm -t shoppingclient:dev --target base --label "com.microsoft.visual-studio.project-name=Shopping.Client" "C:\Projetos\DotNet\run-devops" 
 docker run -d -p 27017:27017 — name shopping-mongo mongo
 docker-compose -f docker-compose.yml -f docker-compose.override.yml up --build
+
+docker tag shoppingapi:latest fsalvadoracr.azurecr.io/shoppingapi:v1
+docker tag shoppingclient:latest fsalvadoracr.azurecr.io/shoppingclient:v1
+
+docker push fsalvadoracr.azurecr.io/shoppingapi:v1
+docker push fsalvadoracr.azurecr.io/shoppingclient:v1
  
+//Azure CLI
 az group create --name shoppingResource --location westus2
 az acr create --resource-group shoppingResource --name fsalvadoracr --sku Basic
 az aks create --resource-group shoppingResource --name shoppingAKSCluster --node-count 1 --generate-ssh-keys --attach-acr fsalvadoracr
@@ -15,9 +23,3 @@ az acr repository show-tags --name fsalvadoracr --repository shoppingclient --ou
 
 az group delete --name shoppingResource --yes --no-wait
  
-docker tag shoppingapi:latest fsalvadoracr.azurecr.io/shoppingapi:v1
-docker tag shoppingclient:latest fsalvadoracr.azurecr.io/shoppingclient:v1
-
-
-docker push fsalvadoracr.azurecr.io/shoppingapi:v1
-docker push fsalvadoracr.azurecr.io/shoppingclient:v1
