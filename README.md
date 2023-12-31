@@ -2,8 +2,8 @@
 ![image](https://user-images.githubusercontent.com/13543372/236958430-a1e3116d-fca8-4742-8080-91e03709e77b.png)  
 # Devops Pipeline  
 ![image](https://github.com/felipesalvadordev/run-devops/assets/13543372/9d3ecfca-d646-43be-9c37-c76dc7c07efe)  
-# Deploy to Azure Kubernetes Services (AKS) through CI/CD Azure Pipelines  
-![image](https://github.com/felipesalvadordev/run-devops/assets/13543372/c64e54e3-4247-4d46-b05b-fc2eba9cda99)  
+# AKS Deploy Pipeline  
+![image](https://github.com/felipesalvadordev/run-devops/assets/13543372/96582a12-99a2-43ce-a7a1-c652d0a3869e)
 
 # Shopping MVC Client Application
 First of all, we are going to develop Shopping MVC Client Application For Consuming Api Resource which will be the Shopping.Client Asp.Net MVC Web Project. But we will start with developing this project as a standalone Web application which includes own data inside it. And we will add container support with DockerFile, push docker images to Docker hub and see the deployment options like “Azure Web App for Container” resources for 1 web application.
